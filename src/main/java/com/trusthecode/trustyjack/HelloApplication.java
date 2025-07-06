@@ -1,12 +1,16 @@
 package com.trusthecode.trustyjack;
 
+import com.trusthecode.trustyjack.controllers.gameController;
 import com.trusthecode.trustyjack.models.Card;
+import com.trusthecode.trustyjack.models.Deck;
+import com.trusthecode.trustyjack.models.Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HelloApplication extends Application {
     @Override
@@ -78,11 +82,89 @@ public class HelloApplication extends Application {
         Card SQ = new Card("Spades", "SQ", 10);
         Card SK = new Card("Spades", "SK", 10);
 
-        Card Deck[] = {/*Clubs*/C,C2,C3,C4,C5,C6,C7,C8,C9,C10,CJ,CQ,CK, /*Diamonds*/D,D2,D3,D4,D5,D6,D7,D8,D9,D10,DJ,DQ,DK, /*Hearts*/H,H2,H3,H4,H5,H6,H7,H8,H9,H10,HJ,HQ,HK, /*Spades*/S,S2,S3,S4,S5,S6,S7,S8,S9,S10,SJ,SQ,SK};
-        for (int i=0; i<Deck.length; i++){
-            if(Deck[i].getType() == "Spades"){
-                System.out.println(Deck[i].getName());
-            }
+        ArrayList<Card> DeckList = new ArrayList<Card>();
+        // Clubs
+        DeckList.add(C);
+        DeckList.add(C2);
+        DeckList.add(C3);
+        DeckList.add(C4);
+        DeckList.add(C5);
+        DeckList.add(C6);
+        DeckList.add(C7);
+        DeckList.add(C8);
+        DeckList.add(C9);
+        DeckList.add(C10);
+        DeckList.add(CJ);
+        DeckList.add(CQ);
+        DeckList.add(CK);
+
+// Diamonds
+        DeckList.add(D);
+        DeckList.add(D2);
+        DeckList.add(D3);
+        DeckList.add(D4);
+        DeckList.add(D5);
+        DeckList.add(D6);
+        DeckList.add(D7);
+        DeckList.add(D8);
+        DeckList.add(D9);
+        DeckList.add(D10);
+        DeckList.add(DJ);
+        DeckList.add(DQ);
+        DeckList.add(DK);
+// Hearts
+        DeckList.add(H);
+        DeckList.add(H2);
+        DeckList.add(H3);
+        DeckList.add(H4);
+        DeckList.add(H5);
+        DeckList.add(H6);
+        DeckList.add(H7);
+        DeckList.add(H8);
+        DeckList.add(H9);
+        DeckList.add(H10);
+        DeckList.add(HJ);
+        DeckList.add(HQ);
+        DeckList.add(HK);
+// Spades
+        DeckList.add(S);
+        DeckList.add(S2);
+        DeckList.add(S3);
+        DeckList.add(S4);
+        DeckList.add(S5);
+        DeckList.add(S6);
+        DeckList.add(S7);
+        DeckList.add(S8);
+        DeckList.add(S9);
+        DeckList.add(S10);
+        DeckList.add(SJ);
+        DeckList.add(SQ);
+        DeckList.add(SK);
+
+        Deck Deck = new Deck(DeckList);
+        Player ivan = new Player(null);
+        Player crupier = new Player(null);
+        for(int i=0; i<23; i++) {
+            crupier.addCard(Deck.getRandomCard());
+            ivan.addCard(Deck.getRandomCard());
+
         }
+        System.out.println("Deck started with 52 cards");
+        System.out.println("Deck now has: " + Deck.getDeck().size() + " cards");
+        System.out.println("James has: " + ivan.getCard(0).getName() + " score: " + ivan.getScore());
+        System.out.println("Crupier has: " + crupier.getCard(0).getName() + " score: " + crupier.getScore());
+
+        System.out.println("Reseting deck");
+        gameController.reset(ivan, crupier, Deck);
+        System.out.println("James deck: " + ivan.getDeck().size() + " score: " + ivan.getScore());
+        System.out.println("Crupier deck: " +crupier.getDeck().size() + " score: " + crupier.getScore());
+        System.out.println("Deck size " + Deck.getDeck().size());
+
+
+
+
+
+
+
     }
 }
