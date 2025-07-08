@@ -14,7 +14,7 @@ public class Deck implements DeckInterface {
 
     @Override
     public List<Card> reset() {
-        Deck = Backup;
+        Deck = new ArrayList<>(Backup);
         return Deck;
     }
 
