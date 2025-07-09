@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        //launch();
+        launch();
 
         //Clubs
         Card C = new Card("Clubs", "C", 1);
