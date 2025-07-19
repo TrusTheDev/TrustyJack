@@ -9,15 +9,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/trusthecode/trustyjack/hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 400);
+        stage.setTitle("TrustyJack");
         stage.setScene(scene);
         stage.show();
     }
@@ -144,6 +152,7 @@ public class HelloApplication extends Application {
         Deck Deck = new Deck(DeckList);
         Player ivan = new Player(null);
         Player crupier = new Player(null);
+
         //Test to see functionalities
 //        for(int i=1; i<100; i++) {
 //            for (int j = 0; j < 26; j++) {
