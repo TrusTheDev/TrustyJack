@@ -32,9 +32,7 @@ public class Player implements DeckInterface {
     }
 
     private void calcScore(){
-        for(int i=0; i<Deck.size();i++){
-            score += Deck.get(i).getValue();
-        }
+            score += Deck.getLast().getValue();
     }
 
     public Card getCard(int index){

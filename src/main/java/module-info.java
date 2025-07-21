@@ -6,4 +6,6 @@ module com.trusthecode.trustyjack {
 
     opens com.trusthecode.trustyjack to javafx.fxml;
     exports com.trusthecode.trustyjack;
+    exports com.trusthecode.trustyjack.controllers;
+    opens com.trusthecode.trustyjack.controllers to javafx.fxml;
 }

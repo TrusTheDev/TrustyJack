@@ -70,7 +70,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.trusthecode.trustyjack/com.trusthecode.trustyjack.HelloApplication
+                            <mainClass>com.trusthecode.trustyjack/com.trusthecode.trustyjack.game
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

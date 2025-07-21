@@ -1,6 +1,5 @@
-package com.trusthecode.trustyjack;
+package com.trusthecode.trustyjack.controllers;
 
-import com.trusthecode.trustyjack.controllers.gameController;
 import com.trusthecode.trustyjack.models.Card;
 import com.trusthecode.trustyjack.models.Deck;
 import com.trusthecode.trustyjack.models.Player;
@@ -39,19 +38,23 @@ public class viewController {
     Player player = new Player(null);
     Player crupier = new Player(null);
     Deck deck = initCardDeck();
+    Image blankCard = new Image(getClass().getResource("/com/trusthecode/trustyjack/cards/blank.png").toExternalForm());
     public void initialize(){
         resetTable();
     }
 
-    public Image grabCard(Card card) {
-        return new Image(getClass().getResource("cards/" + card.getName() + ".png").toExternalForm());
+    public void grabCard(ImageView imageCard,Card card) {
+        Image image = new Image(getClass().getResource("/com/trusthecode/trustyjack/cards/" + card.getName() + ".png").toExternalForm());
+        imageCard.setImage(image);
     }
 
+    public void clickCard1(){
+        System.out.println("hello word");
+    }
+
+
     public void resetTable() {
-        Image blankCard = new Image(getClass().getResource("cards/blank.png").toExternalForm());
-
         gameController.reset(player, crupier, deck);
-
         Pcard1.setImage(blankCard);
         Pcard2.setImage(blankCard);
         Pcard3.setImage(blankCard);
@@ -59,15 +62,12 @@ public class viewController {
 
         crupier.addCard(deck.getRandomCard());
         crupier.addCard(deck.getRandomCard());
-        Image randomCard = grabCard(crupier.getCard(0));
-        Ccard1.setImage(randomCard);
-        randomCard = grabCard(crupier.getCard(1));
+        grabCard(Ccard1,crupier.getCard(0));
 
         Cscore.setText(Integer.toString(crupier.getScore()));
-        Ccard2.setImage(randomCard);
+        grabCard(Ccard2, crupier.getCard(1));
         Ccard3.setImage(blankCard);
         Ccard4.setImage(blankCard);
-
     }
 
     public Deck initCardDeck(){
