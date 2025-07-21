@@ -4,35 +4,73 @@ import com.trusthecode.trustyjack.controllers.gameController;
 import com.trusthecode.trustyjack.models.Card;
 import com.trusthecode.trustyjack.models.Deck;
 import com.trusthecode.trustyjack.models.Player;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
-public class HelloApplication extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/trusthecode/trustyjack/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 400);
-        stage.setTitle("TrustyJack");
-        stage.setScene(scene);
-        stage.show();
+public class viewController {
+    @FXML
+    private Label welcomeText;
+
+    @FXML
+    private ImageView Pcard1;
+    @FXML
+    private ImageView Pcard2;
+    @FXML
+    private ImageView Pcard3;
+    @FXML
+    private ImageView Pcard4;
+
+    @FXML
+    private ImageView Ccard1;
+    @FXML
+    private ImageView Ccard2;
+    @FXML
+    private ImageView Ccard3;
+    @FXML
+    private ImageView Ccard4;
+
+    @FXML
+    private Label Cscore;
+
+    Player player = new Player(null);
+    Player crupier = new Player(null);
+    Deck deck = initCardDeck();
+    public void initialize(){
+        resetTable();
     }
 
-    public static void main(String[] args) {
-        launch();
+    public Image grabCard(Card card) {
+        return new Image(getClass().getResource("cards/" + card.getName() + ".png").toExternalForm());
+    }
 
+    public void resetTable() {
+        Image blankCard = new Image(getClass().getResource("cards/blank.png").toExternalForm());
+
+        gameController.reset(player, crupier, deck);
+
+        Pcard1.setImage(blankCard);
+        Pcard2.setImage(blankCard);
+        Pcard3.setImage(blankCard);
+        Pcard4.setImage(blankCard);
+
+        crupier.addCard(deck.getRandomCard());
+        crupier.addCard(deck.getRandomCard());
+        Image randomCard = grabCard(crupier.getCard(0));
+        Ccard1.setImage(randomCard);
+        randomCard = grabCard(crupier.getCard(1));
+
+        Cscore.setText(Integer.toString(crupier.getScore()));
+        Ccard2.setImage(randomCard);
+        Ccard3.setImage(blankCard);
+        Ccard4.setImage(blankCard);
+
+    }
+
+    public Deck initCardDeck(){
         //Clubs
         Card C = new Card("Clubs", "C", 1);
         Card C2 = new Card("Clubs", "C2", 2);
@@ -148,35 +186,7 @@ public class HelloApplication extends Application {
         DeckList.add(SJ);
         DeckList.add(SQ);
         DeckList.add(SK);
-
-        Deck Deck = new Deck(DeckList);
-        Player ivan = new Player(null);
-        Player crupier = new Player(null);
-
-        //Test to see functionalities
-//        for(int i=1; i<100; i++) {
-//            for (int j = 0; j < 26; j++) {
-//                crupier.addCard(Deck.getRandomCard());
-//                ivan.addCard(Deck.getRandomCard());
-//            }
-//            System.out.println("Deck started with 52 cards");
-//            System.out.println("Deck now has: " + Deck.getDeck().size() + " cards");
-//            System.out.println("James has: " + ivan.getCard(0).getName() + " score: " + ivan.getScore());
-//            System.out.println("Crupier has: " + crupier.getCard(0).getName() + " score: " + crupier.getScore());
-//
-//            System.out.println("Reseting deck");
-//            gameController.reset(ivan, crupier, Deck);
-//            System.out.println("James deck: " + ivan.getDeck().size() + " score: " + ivan.getScore());
-//            System.out.println("Crupier deck: " + crupier.getDeck().size() + " score: " + crupier.getScore());
-//            System.out.println("Deck size " + Deck.getDeck().size());
-//            System.out.println("------------------------------------------------------------------------");
-//        }
-
-
-
-
-
-
-
+        Deck deck = new Deck(DeckList);
+        return deck;
     }
 }
