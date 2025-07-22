@@ -99,21 +99,37 @@
                </children>
             </StackPane>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" text="score:">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label text="0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="score:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#RestartBtn" text="Restart" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Hit">
+            <Button mnemonicParsing="false" onMouseClicked="#PlayerHit" text="Hit">
                <font>
                   <Font size="17.0" />
                </font>

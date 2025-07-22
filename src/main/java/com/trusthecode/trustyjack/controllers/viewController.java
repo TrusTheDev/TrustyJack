@@ -61,11 +61,17 @@ public class viewController {
     public void StandOnClick(){
         int cont = 2;
         System.out.println(endgame);
+        ImageView[] CrupierCards = {Ccard1, Ccard2, Ccard3, Ccard4};
 
         while (!endgame) {
             while (crupier.getScore() < player.getScore()){
-                CrupierHit(Ccard3, cont);
-                cont++;
+                if(cont < 4){
+                    CrupierHit(CrupierCards[cont]);
+                    cont++;
+                }
+                else {
+                    CrupierHit(CrupierCards[3]);
+                }
             }
             getPlayerscore();
             endgame = true;
@@ -139,9 +145,15 @@ public class viewController {
         }
     }
 
+    public void RestartBtn(){
+        System.out.println("holap");
+        resetTable();
+    }
 
     public void resetTable() {
         endgame = false;
+        winOrLoseSign.setText("");
+        boardBox.setOpacity(1.0);
         gameController.reset(player, crupier, deck);
         Pcard1.setImage(blankCard);
         Pcard2.setImage(blankCard);
@@ -159,17 +171,34 @@ public class viewController {
         Pscore.setText("0");
     }
 
-    public void CrupierHit(ImageView Ccard, int index){
+    public void CrupierHit(ImageView CrupierCard){
         System.out.println("Crupierhit");
         crupier.addCard(deck.getRandomCard());
         CrupierScore = crupier.getScore();
-        grabCard(Ccard,crupier.getCard(index));
+        grabCard(CrupierCard,crupier.getLastCard());
         verifyScore(Cscore,CrupierScore);
     }
 
+    public void PlayerHit(){
+        int cont = player.getDeck().size();
 
+        ImageView[] PlayerCards = new ImageView[]{Pcard1, Pcard2, Pcard3, Pcard4};
 
-
+        if(cont < 4){
+            while (PlayerCards[cont].getImage() != blankCard){
+                cont++;
+                System.out.println(cont);
+            }
+            player.addCard(deck.getRandomCard());
+            grabCard(PlayerCards[cont],player.getLastCard());
+        }
+        else{
+            player.addCard(deck.getRandomCard());
+            grabCard(Pcard4,player.getLastCard());
+        }
+        Playerscore = player.getScore();
+        verifyScore(Pscore, Playerscore);
+    }
 
     public Deck initCardDeck(){
         //Clubs
