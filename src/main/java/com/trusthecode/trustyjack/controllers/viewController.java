@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 
@@ -35,12 +36,40 @@ public class viewController {
     @FXML
     private Label Cscore;
 
+    @FXML
+    private Label Pscore;
+
+    @FXML
+    private Label winOrLoseSign;
+
+    @FXML
+    private VBox boardBox;
+
     Player player = new Player(null);
     Player crupier = new Player(null);
     Deck deck = initCardDeck();
     Image blankCard = new Image(getClass().getResource("/com/trusthecode/trustyjack/cards/blank.png").toExternalForm());
+    boolean endgame = false;
+    int Playerscore;
+    int CrupierScore;
+
     public void initialize(){
         resetTable();
+
+    }
+
+    public void StandOnClick(){
+        int cont = 2;
+        System.out.println(endgame);
+
+        while (!endgame) {
+            while (crupier.getScore() < player.getScore()){
+                CrupierHit(Ccard3, cont);
+                cont++;
+            }
+            getPlayerscore();
+            endgame = true;
+        }
     }
 
     public void grabCard(ImageView imageCard,Card card) {
@@ -48,12 +77,71 @@ public class viewController {
         imageCard.setImage(image);
     }
 
+    public boolean scoreAbove(int score){
+        return score > 21 ? true : false;
+    }
+
+    public boolean getPlayerscore(){
+        boardBox.setOpacity(0.10);
+        winOrLoseSign.setStyle("-fx-font-size: 50px; -fx-font-weight: bold;");
+
+        if(player.getScore() == crupier.getScore() && player.getScore() <= 21 && crupier.getScore() <= 21){
+            winOrLoseSign.setText("Draw");
+            System.out.println("draw");
+        }
+
+        else if (player.getScore() > crupier.getScore() && player.getScore() <= 21 || crupier.getScore() > 21){
+            System.out.println(player.getScore());
+            winOrLoseSign.setText("You win");
+            System.out.println("You wins");
+        }
+        else {
+            System.out.println(crupier.getScore());
+            winOrLoseSign.setText("Crupier wins");
+            System.out.println("crupier wins");
+        }
+        return !endgame;
+    }
     public void clickCard1(){
-        System.out.println("hello word");
+        player.addCard(deck.getRandomCard());
+        grabCard(Pcard1,player.getLastCard());
+        Playerscore = player.getScore();
+        verifyScore(Pscore, Playerscore);
+    }
+
+    public void clickCard2(){
+        player.addCard(deck.getRandomCard());
+        grabCard(Pcard2,player.getLastCard());
+        Playerscore = player.getScore();
+        verifyScore(Pscore, Playerscore);
+    }
+
+    public void clickCard3(){
+        player.addCard(deck.getRandomCard());
+        grabCard(Pcard3,player.getLastCard());
+        Playerscore = player.getScore();
+        verifyScore(Pscore, Playerscore);
+    }
+
+    public void clickCard4(){
+        player.addCard(deck.getRandomCard());
+        grabCard(Pcard4,player.getLastCard());
+        Playerscore = player.getScore();
+        verifyScore(Pscore, Playerscore);
+    }
+
+    public void verifyScore(Label LScore,int score){
+        LScore.setText(Integer.toString(score));
+        System.out.println(score);
+        endgame = scoreAbove(score);
+        if(endgame){
+            getPlayerscore();
+        }
     }
 
 
     public void resetTable() {
+        endgame = false;
         gameController.reset(player, crupier, deck);
         Pcard1.setImage(blankCard);
         Pcard2.setImage(blankCard);
@@ -63,12 +151,25 @@ public class viewController {
         crupier.addCard(deck.getRandomCard());
         crupier.addCard(deck.getRandomCard());
         grabCard(Ccard1,crupier.getCard(0));
-
-        Cscore.setText(Integer.toString(crupier.getScore()));
+        CrupierScore = crupier.getScore();
+        Cscore.setText(String.valueOf(CrupierScore));
         grabCard(Ccard2, crupier.getCard(1));
         Ccard3.setImage(blankCard);
         Ccard4.setImage(blankCard);
+        Pscore.setText("0");
     }
+
+    public void CrupierHit(ImageView Ccard, int index){
+        System.out.println("Crupierhit");
+        crupier.addCard(deck.getRandomCard());
+        CrupierScore = crupier.getScore();
+        grabCard(Ccard,crupier.getCard(index));
+        verifyScore(Cscore,CrupierScore);
+    }
+
+
+
+
 
     public Deck initCardDeck(){
         //Clubs

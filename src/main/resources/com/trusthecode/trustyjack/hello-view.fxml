@@ -8,6 +8,7 @@
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -18,72 +19,85 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <HBox spacing="10.0">
+                  <VBox fx:id="boardBox" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <HBox spacing="10.0">
                            <children>
-                              <Label maxWidth="80.0" minWidth="-Infinity" prefWidth="80.0" text="Crupier">
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="Cscore" text="0" />
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label maxWidth="80.0" minWidth="-Infinity" prefWidth="80.0" text="Crupier">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Cscore" text="0" />
+                                 </children>
+                              </VBox>
+                              <ImageView fx:id="Ccard1" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="Ccard2" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="Ccard3" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="Ccard4" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
-                        </VBox>
-                        <ImageView fx:id="Ccard1" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
+                           <VBox.margin>
                               <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <ImageView fx:id="Ccard2" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="Ccard3" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="Ccard4" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <HBox spacing="10.0">
-                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           </VBox.margin>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <HBox spacing="10.0">
                            <children>
-                              <Label maxWidth="80.0" minWidth="-Infinity" prefWidth="80.0" text="You">
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label text="0" />
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label maxWidth="80.0" minWidth="-Infinity" prefWidth="80.0" text="You">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Pscore" text="0" />
+                                 </children>
+                              </VBox>
+                              <ImageView fx:id="Pcard1" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard1" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                                 <effect>
+                                    <Glow />
+                                 </effect>
+                              </ImageView>
+                              <ImageView fx:id="Pcard2" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard2" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="Pcard3" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard3" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="Pcard4" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard4" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </ImageView>
                            </children>
-                        </VBox>
-                        <ImageView fx:id="Pcard1" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard1" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
-                           <effect>
-                              <Glow />
-                           </effect></ImageView>
-                        <ImageView fx:id="Pcard2" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard2" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor></ImageView>
-                        <ImageView fx:id="Pcard3" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard3" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor></ImageView>
-                        <ImageView fx:id="Pcard4" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard4" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor></ImageView>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
+                  </VBox>
+                  <Label fx:id="winOrLoseSign">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
+            </StackPane>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
             <Label alignment="CENTER" contentDisplay="CENTER" text="score:">
                <font>
@@ -107,7 +121,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" text="Stand">
+            <Button mnemonicParsing="false" onMouseClicked="#StandOnClick" text="Stand">
                <font>
                   <Font size="17.0" />
                </font>

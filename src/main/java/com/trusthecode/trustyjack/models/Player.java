@@ -39,6 +39,10 @@ public class Player implements DeckInterface {
         return Deck.get(index);
     }
 
+    public Card getLastCard(){
+        return Deck.getLast();
+    }
+
     public List<Card> getDeck() {
         return Deck;
     }
