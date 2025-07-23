@@ -11,4 +11,5 @@ public class gameController {
         deck.reset();
         return new Object[]{player, crupier, deck};
     }
+
 }

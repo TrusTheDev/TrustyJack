@@ -1,5 +1,4 @@
 package com.trusthecode.trustyjack.controllers;
-
 import com.trusthecode.trustyjack.models.Card;
 import com.trusthecode.trustyjack.models.Deck;
 import com.trusthecode.trustyjack.models.Player;
@@ -8,13 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-
 import java.util.ArrayList;
 
-public class viewController {
-    @FXML
-    private Label welcomeText;
-
+public class ViewController {
     @FXML
     private ImageView Pcard1;
     @FXML
@@ -23,7 +18,6 @@ public class viewController {
     private ImageView Pcard3;
     @FXML
     private ImageView Pcard4;
-
     @FXML
     private ImageView Ccard1;
     @FXML
@@ -32,16 +26,12 @@ public class viewController {
     private ImageView Ccard3;
     @FXML
     private ImageView Ccard4;
-
     @FXML
     private Label Cscore;
-
     @FXML
     private Label Pscore;
-
     @FXML
     private Label winOrLoseSign;
-
     @FXML
     private VBox boardBox;
 
@@ -60,9 +50,7 @@ public class viewController {
 
     public void StandOnClick(){
         int cont = 2;
-        System.out.println(endgame);
         ImageView[] CrupierCards = {Ccard1, Ccard2, Ccard3, Ccard4};
-
         while (!endgame) {
             while (crupier.getScore() < player.getScore()){
                 if(cont < 4){
@@ -77,12 +65,10 @@ public class viewController {
             endgame = true;
         }
     }
-
     public void grabCard(ImageView imageCard,Card card) {
         Image image = new Image(getClass().getResource("/com/trusthecode/trustyjack/cards/" + card.getName() + ".png").toExternalForm());
         imageCard.setImage(image);
     }
-
     public boolean scoreAbove(int score){
         return score > 21 ? true : false;
     }
@@ -93,21 +79,16 @@ public class viewController {
 
         if(player.getScore() == crupier.getScore() && player.getScore() <= 21 && crupier.getScore() <= 21){
             winOrLoseSign.setText("Draw");
-            System.out.println("draw");
         }
-
         else if (player.getScore() > crupier.getScore() && player.getScore() <= 21 || crupier.getScore() > 21){
-            System.out.println(player.getScore());
             winOrLoseSign.setText("You win");
-            System.out.println("You wins");
         }
         else {
-            System.out.println(crupier.getScore());
             winOrLoseSign.setText("Crupier wins");
-            System.out.println("crupier wins");
         }
         return !endgame;
     }
+
     public void clickCard1(){
         player.addCard(deck.getRandomCard());
         grabCard(Pcard1,player.getLastCard());
@@ -138,7 +119,6 @@ public class viewController {
 
     public void verifyScore(Label LScore,int score){
         LScore.setText(Integer.toString(score));
-        System.out.println(score);
         endgame = scoreAbove(score);
         if(endgame){
             getPlayerscore();
@@ -146,7 +126,6 @@ public class viewController {
     }
 
     public void RestartBtn(){
-        System.out.println("holap");
         resetTable();
     }
 
@@ -172,7 +151,6 @@ public class viewController {
     }
 
     public void CrupierHit(ImageView CrupierCard){
-        System.out.println("Crupierhit");
         crupier.addCard(deck.getRandomCard());
         CrupierScore = crupier.getScore();
         grabCard(CrupierCard,crupier.getLastCard());
@@ -181,13 +159,11 @@ public class viewController {
 
     public void PlayerHit(){
         int cont = player.getDeck().size();
-
         ImageView[] PlayerCards = new ImageView[]{Pcard1, Pcard2, Pcard3, Pcard4};
 
         if(cont < 4){
             while (PlayerCards[cont].getImage() != blankCard){
                 cont++;
-                System.out.println(cont);
             }
             player.addCard(deck.getRandomCard());
             grabCard(PlayerCards[cont],player.getLastCard());
