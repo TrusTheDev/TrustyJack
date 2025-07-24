@@ -11,22 +11,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="456.0" prefWidth="851.0" spacing="20.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trusthecode.trustyjack.controllers.ViewController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trusthecode.trustyjack.controllers.ViewController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
          <children>
-            <StackPane fx:id="boardStackPane" prefHeight="150.0" prefWidth="200.0">
+            <StackPane fx:id="boardStackPane" StackPane.alignment="CENTER" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
                <children>
-                  <VBox fx:id="boardBox" prefHeight="200.0" prefWidth="100.0">
+                  <VBox fx:id="boardBox" spacing="10.0" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
                      <children>
-                        <HBox spacing="10.0">
+                        <HBox spacing="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
+                              <VBox VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label maxWidth="80.0" minWidth="-Infinity" prefWidth="80.0" text="Crupier">
+                                    <Label maxWidth="Infinity" prefWidth="80.0" text="Crupier">
                                        <font>
                                           <Font name="System Bold" size="22.0" />
                                        </font>
@@ -34,25 +34,20 @@
                                     <Label fx:id="Cscore" text="0" />
                                  </children>
                               </VBox>
-                              <ImageView fx:id="Ccard1" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fx:id="Ccard2" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="Ccard3" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="Ccard4" fitHeight="150.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
+                              <!-- Las cartas del crupier -->
+                              <ImageView fx:id="Ccard1" fitHeight="150.0" fitWidth="114.0" preserveRatio="true" />
+                              <ImageView fx:id="Ccard2" fitHeight="150.0" fitWidth="114.0" preserveRatio="true" />
+                              <ImageView fx:id="Ccard3" fitHeight="150.0" fitWidth="114.0" preserveRatio="true" />
+                              <ImageView fx:id="Ccard4" fitHeight="150.0" fitWidth="114.0" preserveRatio="true" />
                            </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
                         </HBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" />
-                        <HBox spacing="10.0">
+
+                        <!-- Espaciador -->
+                        <HBox spacing="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
+                              <VBox>
                                  <children>
-                                    <Label maxWidth="80.0" minWidth="-Infinity" prefWidth="80.0" text="You">
+                                    <Label maxWidth="Infinity" prefWidth="80.0" text="You">
                                        <font>
                                           <Font name="System Bold" size="22.0" />
                                        </font>
@@ -60,7 +55,8 @@
                                     <Label fx:id="Pscore" text="0" />
                                  </children>
                               </VBox>
-                              <ImageView fx:id="Pcard1" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard1" pickOnBounds="true" preserveRatio="true">
+                              <!-- Las cartas del jugador -->
+                              <ImageView fx:id="Pcard1" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard1" preserveRatio="true">
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
                                  </cursor>
@@ -68,64 +64,52 @@
                                     <Glow />
                                  </effect>
                               </ImageView>
-                              <ImageView fx:id="Pcard2" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard2" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="Pcard2" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard2" preserveRatio="true">
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fx:id="Pcard3" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard3" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="Pcard3" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard3" preserveRatio="true">
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fx:id="Pcard4" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard4" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="Pcard4" fitHeight="150.0" fitWidth="114.0" onMouseClicked="#clickCard4" preserveRatio="true">
                                  <cursor>
                                     <Cursor fx:constant="OPEN_HAND" />
                                  </cursor>
                               </ImageView>
                            </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="119.0" prefWidth="576.0" spacing="5.0">
+
+                        <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Button mnemonicParsing="false" onMouseClicked="#PlayerHit" text="Hit">
+                              <Button mnemonicParsing="false" onMouseClicked="#PlayerHit" text="Hit" maxWidth="Infinity">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" onMouseClicked="#StandOnClick" text="Stand">
+                              <Button mnemonicParsing="false" onMouseClicked="#StandOnClick" text="Stand" maxWidth="Infinity">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
                               </Button>
                            </children>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
                         </HBox>
                      </children>
                   </VBox>
+
                   <Label fx:id="winOrLoseSign">
                      <font>
                         <Font size="50.0" />
                      </font>
                   </Label>
                </children>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
             </StackPane>
-            <VBox prefHeight="338.0" prefWidth="236.0">
+
+            <VBox VBox.vgrow="ALWAYS" spacing="10.0">
                <children>
-                  <HBox alignment="CENTER" opacity="0.0" prefHeight="100.0" prefWidth="250.0">
+                  <HBox alignment="CENTER" opacity="0.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" text="score:">
                            <font>
@@ -138,13 +122,10 @@
                            </font>
                         </Label>
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                   </HBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="239.0" prefWidth="235.0">
+                  <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#RestartBtn" text="Restart">
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#RestartBtn" text="Restart">
                            <font>
                               <Font size="28.0" />
                            </font>
@@ -157,3 +138,4 @@
       </HBox>
    </children>
 </VBox>
+

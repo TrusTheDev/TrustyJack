@@ -125,17 +125,21 @@ public class ViewController {
     public void PlayerHit(){
         int cont = controller.getPlayerDeckSize();
         ImageView[] PlayerCards = new ImageView[]{Pcard1, Pcard2, Pcard3, Pcard4};
-
         if(cont < 4){
-            while (PlayerCards[cont].getImage() != blankCard){
-                cont++;
-            }
-            grabCard(PlayerCards[cont],controller.addPlayerCard());
+                grabCard(PlayerCards[blankPosition(PlayerCards)], controller.addPlayerCard());
         }
         else{
             grabCard(Pcard4, controller.addPlayerCard());
         }
         verifyScore(Pscore, controller.getPlayerScore());
+    }
+
+    public int blankPosition(ImageView[] imageViews){
+        int i = 0;
+        while (imageViews[i].getImage() != blankCard) {
+            i++;
+        }
+        return i;
     }
 
     public Deck initCardDeck(){
