@@ -2,13 +2,17 @@ package com.trusthecode.trustyjack.controllers;
 import com.trusthecode.trustyjack.models.Card;
 import com.trusthecode.trustyjack.models.Deck;
 import com.trusthecode.trustyjack.models.Player;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.util.ArrayList;
 
 public class ViewController {
@@ -36,18 +40,42 @@ public class ViewController {
     private Label winOrLoseSign;
     @FXML
     private VBox boardBox;
-
     @FXML
     private StackPane boardStackPane;
-
-
+    @FXML
+            private Button restartbtn;
     Image blankCard = new Image(getClass().getResource("/com/trusthecode/trustyjack/cards/blank.png").toExternalForm());
-
     GameController controller = new GameController();
     public void initialize(){
         resetTable();
 
+        restartbtn.widthProperty().addListener((obs, oldVal, newVal) -> {
+            double newFontSize = newVal.doubleValue() / 4.5;
+            System.out.println(newFontSize);
+            restartbtn.setStyle("-fx-font-size: " + newFontSize + "px;");
+        });
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void StandOnClick(){
         controller.stand();

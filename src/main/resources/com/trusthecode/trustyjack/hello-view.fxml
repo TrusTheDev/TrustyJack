@@ -16,11 +16,11 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <HBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+      <HBox HBox.hgrow="ALWAYS">
          <children>
-            <StackPane fx:id="boardStackPane" StackPane.alignment="CENTER" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
+            <StackPane fx:id="boardStackPane" maxHeight="Infinity" maxWidth="Infinity" StackPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox fx:id="boardBox" spacing="10.0" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity">
+                  <VBox fx:id="boardBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                      <children>
                         <HBox spacing="10.0" HBox.hgrow="ALWAYS">
                            <children>
@@ -40,9 +40,12 @@
                               <ImageView fx:id="Ccard3" fitHeight="150.0" fitWidth="114.0" preserveRatio="true" />
                               <ImageView fx:id="Ccard4" fitHeight="150.0" fitWidth="114.0" preserveRatio="true" />
                            </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
                         </HBox>
 
-                        <!-- Espaciador -->
+                              <!-- Espaciador -->
                         <HBox spacing="10.0" HBox.hgrow="ALWAYS">
                            <children>
                               <VBox>
@@ -82,14 +85,14 @@
                            </children>
                         </HBox>
 
-                        <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
+                                                                                                                                    <HBox alignment="BOTTOM_CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Button mnemonicParsing="false" onMouseClicked="#PlayerHit" text="Hit" maxWidth="Infinity">
+                              <Button maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#PlayerHit" text="Hit">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onMouseClicked="#StandOnClick" text="Stand" maxWidth="Infinity">
+                              <Button maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#StandOnClick" text="Stand">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -99,7 +102,7 @@
                      </children>
                   </VBox>
 
-                  <Label fx:id="winOrLoseSign">
+                              <Label fx:id="winOrLoseSign">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -107,25 +110,11 @@
                </children>
             </StackPane>
 
-            <VBox VBox.vgrow="ALWAYS" spacing="10.0">
+            <VBox prefHeight="50.0" prefWidth="300.0" spacing="300.0" VBox.vgrow="ALWAYS">
                <children>
-                  <HBox alignment="CENTER" opacity="0.0">
+                  <VBox alignment="TOP_CENTER">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="score:">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Label text="0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#RestartBtn" text="Restart">
+                        <Button fx:id="restartbtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#RestartBtn" text="Restart">
                            <font>
                               <Font size="28.0" />
                            </font>
@@ -138,4 +127,3 @@
       </HBox>
    </children>
 </VBox>
-
