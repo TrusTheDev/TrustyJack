@@ -85,14 +85,14 @@
                            </children>
                         </HBox>
 
-                                                                                                                                    <HBox alignment="BOTTOM_CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="BOTTOM_CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Button maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#PlayerHit" text="Hit">
+                              <Button maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#PlayerHit" prefHeight="50.0" prefWidth="160.0" text="Hit">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </Button>
-                              <Button maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#StandOnClick" text="Stand">
+                              <Button maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#StandOnClick" prefHeight="50.0" prefWidth="160.0" text="Stand">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -102,7 +102,7 @@
                      </children>
                   </VBox>
 
-                              <Label fx:id="winOrLoseSign">
+                  <Label fx:id="winOrLoseSign">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -110,11 +110,11 @@
                </children>
             </StackPane>
 
-            <VBox prefHeight="50.0" prefWidth="300.0" spacing="300.0" VBox.vgrow="ALWAYS">
+            <VBox prefHeight="358.0" prefWidth="160.0" spacing="300.0" VBox.vgrow="ALWAYS">
                <children>
                   <VBox alignment="TOP_CENTER">
                      <children>
-                        <Button fx:id="restartbtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#RestartBtn" text="Restart">
+                        <Button fx:id="restartbtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#RestartBtn" text="Restart">
                            <font>
                               <Font size="28.0" />
                            </font>

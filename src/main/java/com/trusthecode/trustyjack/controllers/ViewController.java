@@ -48,34 +48,7 @@ public class ViewController {
     GameController controller = new GameController();
     public void initialize(){
         resetTable();
-
-        restartbtn.widthProperty().addListener((obs, oldVal, newVal) -> {
-            double newFontSize = newVal.doubleValue() / 4.5;
-            System.out.println(newFontSize);
-            restartbtn.setStyle("-fx-font-size: " + newFontSize + "px;");
-        });
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public void StandOnClick(){
         controller.stand();
