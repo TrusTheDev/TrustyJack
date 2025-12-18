@@ -137,7 +137,7 @@
                               </Label>
                               <Label text="0">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
                            </children>
@@ -156,13 +156,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" spacing="2.0">
+                        <VBox spacing="5.0">
                            <children>
-                              <Button mnemonicParsing="false" prefWidth="48.0" text="\$1" />
-                              <Button mnemonicParsing="false" prefWidth="48.0" text="\$10" />
-                              <Button mnemonicParsing="false" text="\$100" />
+                              <HBox alignment="CENTER" spacing="2.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefWidth="48.0" text="+$1" />
+                                    <Button mnemonicParsing="false" prefWidth="48.0" text="+$10" />
+                                    <Button mnemonicParsing="false" text="+$100" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="2.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefWidth="48.0" text="-$1" />
+                                    <Button mnemonicParsing="false" prefWidth="48.0" text="-$10" />
+                                    <Button mnemonicParsing="false" prefWidth="56.0" text="-$100" />
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
+                        </VBox>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
