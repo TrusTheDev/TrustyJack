@@ -115,10 +115,10 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" mouseTransparent="true">
+                  <VBox fx:id="gameState" alignment="CENTER" mouseTransparent="true">
                      <children>
       
-                              <Label fx:id="winOrLoseSign" text="You win">
+                              <Label fx:id="winOrLoseSign" text="Game state">
                            <font>
                               <Font size="50.0" />
                            </font>

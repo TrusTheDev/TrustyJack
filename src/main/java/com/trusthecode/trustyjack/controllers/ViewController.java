@@ -59,15 +59,14 @@ public class ViewController {
     @FXML
     private Label bet;
     @FXML
-            private Label maxScore;
+    private Label maxScore;
     @FXML
-            private Label earnings;
+    private Label earnings;
+    @FXML
+    private VBox gameState;
     Image blankCard = new Image(getClass().getResource("/com/trusthecode/trustyjack/cards/blank.png").toExternalForm());
     GameController controller = new GameController();
-    public void initialize(){
-        resetTable();
-
-    }
+    public void initialize(){resetTable();}
 
     public void add1(){
         Pot.setText(String.valueOf(controller.add1()));
@@ -133,6 +132,7 @@ public class ViewController {
         if(controller.getMaxScore() < controller.getPot()){controller.setMaxScore(controller.getPot()); maxScore.setText(String.valueOf(controller.getMaxScore()));}
         bet.setText("0");
         earnings.setText(String.valueOf(controller.getEarnings()));
+        gameState.setVisible(true);
     }
 
     public void clickCard1(){
@@ -167,6 +167,7 @@ public class ViewController {
     }
 
     public void resetTable() {
+        gameState.setVisible(false);
         boardStackPane.setMouseTransparent(false);
         winOrLoseSign.setText("");
         boardBox.setOpacity(1.0);
