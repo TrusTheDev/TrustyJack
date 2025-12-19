@@ -66,6 +66,7 @@ public class ViewController {
     GameController controller = new GameController();
     public void initialize(){
         resetTable();
+
     }
 
     public void add1(){
@@ -116,7 +117,6 @@ public class ViewController {
                 grabCard(Ccard4,controller.getCrupierCard(i));
             }
         }
-        verifyScore(Cscore, controller.getCrupierScore());
         results();
     }
     public void grabCard(ImageView imageCard,Card card) {

@@ -99,7 +99,6 @@ public class GameController {
     }
 
     public String gameResults(){
-        this.earnings = 0;
         if(player.getScore() == crupier.getScore() && player.getScore() <= 21 && crupier.getScore() <= 21){
             earnings = (CurrentBet*2-CurrentBet/4);
             Pot = Pot + earnings;
