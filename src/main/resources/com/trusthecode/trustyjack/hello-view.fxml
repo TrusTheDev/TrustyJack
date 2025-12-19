@@ -106,7 +106,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label contentDisplay="CENTER" text="0">
+                              <Label fx:id="maxScore" contentDisplay="CENTER" text="0">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -115,12 +115,30 @@
                         </HBox>
                      </children>
                   </VBox>
-
-                  <Label fx:id="winOrLoseSign">
-                     <font>
-                        <Font size="50.0" />
-                     </font>
-                  </Label>
+                  <VBox alignment="CENTER" mouseTransparent="true">
+                     <children>
+      
+                              <Label fx:id="winOrLoseSign" text="You win">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label text="earnings: $">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="earnings" text="0">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </StackPane>
 
@@ -135,7 +153,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="0">
+                              <Label fx:id="bet" text="0">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -149,7 +167,12 @@
                         </Button>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label contentDisplay="CENTER" text="\$100">
+                              <Label contentDisplay="CENTER" text="\$">
+                                 <font>
+                                    <Font size="41.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Pot" contentDisplay="CENTER" text="100">
                                  <font>
                                     <Font size="41.0" />
                                  </font>
@@ -160,16 +183,16 @@
                            <children>
                               <HBox alignment="CENTER" spacing="2.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefWidth="48.0" text="+$1" />
-                                    <Button mnemonicParsing="false" prefWidth="48.0" text="+$10" />
-                                    <Button mnemonicParsing="false" text="+$100" />
+                                    <Button mnemonicParsing="false" onAction="#add1" prefWidth="48.0" text="+$1" />
+                                    <Button mnemonicParsing="false" onAction="#add2" prefWidth="48.0" text="+$10" />
+                                    <Button mnemonicParsing="false" onAction="#add3" text="+$100" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" spacing="2.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefWidth="48.0" text="-$1" />
-                                    <Button mnemonicParsing="false" prefWidth="48.0" text="-$10" />
-                                    <Button mnemonicParsing="false" prefWidth="56.0" text="-$100" />
+                                    <Button mnemonicParsing="false" onAction="#dec1" prefWidth="48.0" text="-$1" />
+                                    <Button mnemonicParsing="false" onAction="#dec2" prefWidth="48.0" text="-$10" />
+                                    <Button mnemonicParsing="false" onAction="#dec3" prefWidth="56.0" text="-$100" />
                                  </children>
                               </HBox>
                            </children>
@@ -178,7 +201,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="58.0" style="-fx-background-color: F54927;" text="Reset" textFill="WHITE">
+                        <Button alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Reset" prefHeight="58.0" style="-fx-background-color: F54927;" text="Reset" textFill="WHITE">
                            <font>
                               <Font size="40.0" />
                            </font>

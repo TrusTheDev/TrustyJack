@@ -43,11 +43,69 @@ public class ViewController {
     @FXML
     private StackPane boardStackPane;
     @FXML
-            private Button restartbtn;
+    private Label Pot;
+    @FXML
+    private Button add1;
+    @FXML
+    private Button add2;
+    @FXML
+    private Button add3;
+    @FXML
+    private Button dec1;
+    @FXML
+    private Button dec2;
+    @FXML
+    private Button dec3;
+    @FXML
+    private Label bet;
+    @FXML
+            private Label maxScore;
+    @FXML
+            private Label earnings;
     Image blankCard = new Image(getClass().getResource("/com/trusthecode/trustyjack/cards/blank.png").toExternalForm());
     GameController controller = new GameController();
     public void initialize(){
         resetTable();
+    }
+
+    public void add1(){
+        Pot.setText(String.valueOf(controller.add1()));
+        bet.setText(String.valueOf(controller.getCurrentBet()));
+    }
+
+    public void add2(){
+        Pot.setText(String.valueOf(controller.add2()));
+        bet.setText(String.valueOf(controller.getCurrentBet()));
+    }
+
+    public void add3(){
+        Pot.setText(String.valueOf(controller.add3()));
+        bet.setText(String.valueOf(controller.getCurrentBet()));
+    }
+
+    public void dec1(){
+        Pot.setText(String.valueOf(controller.dec1()));
+        bet.setText(String.valueOf(controller.getCurrentBet()));
+    }
+
+
+    public void dec2(){
+        Pot.setText(String.valueOf(controller.dec2()));
+        bet.setText(String.valueOf(controller.getCurrentBet()));
+    }
+
+
+    public void dec3(){
+        Pot.setText(String.valueOf(controller.dec3()));
+        bet.setText(String.valueOf(controller.getCurrentBet()));
+    }
+
+
+    public void Reset(){
+        controller.resetScoreSystem();
+        bet.setText("0");
+        maxScore.setText("0");
+        Pot.setText("100");
     }
 
     public void StandOnClick(){
@@ -70,6 +128,11 @@ public class ViewController {
         boardStackPane.setMouseTransparent(true);
         winOrLoseSign.setStyle("-fx-font-size: 50px; -fx-font-weight: bold;");
         winOrLoseSign.setText(controller.gameResults());
+        controller.setCurrentBet(0);
+        Pot.setText(String.valueOf(controller.getPot()));
+        if(controller.getMaxScore() < controller.getPot()){controller.setMaxScore(controller.getPot()); maxScore.setText(String.valueOf(controller.getMaxScore()));}
+        bet.setText("0");
+        earnings.setText(String.valueOf(controller.getEarnings()));
     }
 
     public void clickCard1(){
