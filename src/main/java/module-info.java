@@ -3,6 +3,7 @@ module com.trusthecode.trustyjack {
     requires javafx.fxml;
 
     requires com.dlsc.formsfx;
+    requires jdk.compiler;
 
     opens com.trusthecode.trustyjack to javafx.fxml;
     exports com.trusthecode.trustyjack;
