@@ -2,6 +2,7 @@ package com.trusthecode.trustyjack.models;
 
 import java.util.ArrayList;
 import java.util.List;
+;
 
 public class Player implements DeckInterface {
     List<Card> Deck = new ArrayList<Card>();
@@ -32,7 +33,7 @@ public class Player implements DeckInterface {
     }
 
     private void calcScore(){
-            score += Deck.getLast().getValue();
+            score += Deck.get(Deck.size() - 1).value;
     }
 
     public Card getCard(int index){
@@ -40,7 +41,7 @@ public class Player implements DeckInterface {
     }
 
     public Card getLastCard(){
-        return Deck.getLast();
+        return Deck.get(Deck.size() - 1);
     }
 
     public List<Card> getDeck() {
