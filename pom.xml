@@ -70,6 +70,54 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Debian, por testear
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>package-app-linux</id>
+                        <goals>
+                            <goal>jpackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <name>TrustyJack</name>
+                    <appVersion>1.0.0</appVersion>
+                    <vendor>TrusTheDev</vendor>
+                    <input>${project.build.directory}/app</input>
+                    <mainClass>com.trusthecode.trustyjack.game.TrustyJackApp</mainClass>
+                    <type>deb</type>
+                    <icon>${project.basedir}/icon.png</icon>
+                </configuration>
+            </plugin>
+            -->
+            
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>package-app-windows</id>
+                        <goals>
+                            <goal>jpackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <name>TrustyJack</name>
+                    <appVersion>1.0.0</appVersion>
+                    <vendor>TrusTheDev</vendor>
+                    <input>${project.build.directory}/app</input>
+                    <mainClass>com.trusthecode.trustyjack.game.TrustyJackApp</mainClass>
+                    <type>exe</type>
+                <winConsole>false</winConsole>
+                <icon>${project.basedir}/icon.ico</icon>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
