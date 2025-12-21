@@ -21,7 +21,7 @@ It recreates the core mechanics of the classic casino game, including betting, s
 
 Java 17 or later must be installed on your system.
 
-** Download **
+**Download**
 
 Download the latest version of TrustyJack for your operating system:
 
@@ -30,10 +30,6 @@ Download the latest version of TrustyJack for your operating system:
 🪟 Windows: [Download](https://github.com/TrusTheDev/TrustyJack/releases/tag/Windows)
 
 Extract the downloaded archive to any directory of your choice.
-
-Run
-
-Launch the application by running the provided JAR file using Java.y running the provided JAR file using Java.
 
 ## ▶️ Running the Game
 
