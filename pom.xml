@@ -94,7 +94,6 @@
                 </configuration>
             </plugin>
             -->
-            
             <plugin>
                 <groupId>org.panteleyev</groupId>
                 <artifactId>jpackage-maven-plugin</artifactId>
