@@ -15,14 +15,25 @@ It recreates the core mechanics of the classic casino game, including betting, s
 * **Score and betting system:** place bets, manage your balance, and try to achieve the highest score possible.
 
 * **Full score reset:** A large red reset button allows you to reset your score at any time, especially useful after losing all your points.
-
+  
 ## 🛠️ Installation
+### Prerequisites
 
-1. Install Java 21 or higher (required).
+Java 17 or later must be installed on your system.
 
-2. [Download](out/artifacts/TrustyJack_jar/TrustyJack.jar) and extract TrustyJack to any directory on your system.
-   [Linux](https://github.com/TrusTheDev/TrustyJack/releases/tag/Linux)
-   [Windows](https://github.com/TrusTheDev/TrustyJack/releases/tag/Windows)
+** Download **
+
+Download the latest version of TrustyJack for your operating system:
+
+🐧 Linux: [Download](https://github.com/TrusTheDev/TrustyJack/releases/tag/Linux)
+
+🪟 Windows: [Download](https://github.com/TrusTheDev/TrustyJack/releases/tag/Windows)
+
+Extract the downloaded archive to any directory of your choice.
+
+Run
+
+Launch the application by running the provided JAR file using Java.y running the provided JAR file using Java.
 
 ## ▶️ Running the Game
 
